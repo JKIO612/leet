@@ -1,0 +1,16 @@
+LEFT_BRACKETS = '{(['
+BRACKETS = dict(('()', '[]', '{}'))
+
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        for i in s:
+            if i in LEFT_BRACKETS:
+                stack.append(i)
+            elif len(stack) == 0 or i != BRACKETS[stack.pop()]:
+                return False
+        return len(stack) == 0

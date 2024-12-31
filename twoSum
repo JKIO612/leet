@@ -1,0 +1,13 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        differences = {} #create a hashmap
+        for index, val in enumerate(nums): #iterating through nums
+            if (target - val) in differences: #because we added 2(something in map) to the map, 6 - 4 (val) is inside the map
+                return [differences[target - val], index] #return [map[6 - 2], 2]
+            differences[val] = index #map[3] = 0, map[2] = 1
+        #0, 1, 2

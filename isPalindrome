@@ -1,0 +1,16 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s = s.lower()
+        dictionary = 'abcdefghijklmnopqrstuvwxyz1234567890'
+
+        for i in s:
+            if i not in dictionary or i == " ":
+                s = s.replace(i, "")
+        
+        if (s == s[::-1]):
+            return True
+        return False
