@@ -1,0 +1,12 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        #hash table, where key is the original word, value is the sorted word
+        map = {}
+
+        for i in strs:
+            sorted_word = ''.join(sorted(i))
+            if sorted_word in map:
+                map[sorted_word].append(i)
+            else:
+                map[sorted_word] = [i]
+        return list(map.values()) #exclude sorted_word keys, arrange its keys into an array/list
